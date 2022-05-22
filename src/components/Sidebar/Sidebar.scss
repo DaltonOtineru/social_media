@@ -1,0 +1,165 @@
+@import '../../sass/variables.scss';
+
+.sidebar {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  position: fixed;
+  height: 100%;
+}
+.sidebar__logoWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.25rem;
+  width: 3.25rem;
+  padding: 0.75rem;
+  //   margin-left: -1rem;
+  border-radius: $br;
+  cursor: pointer;
+  &:hover {
+    background: $hover;
+  }
+}
+.sidebar__linksWrap {
+  padding: 0.75rem;
+}
+
+.sidebar__logo {
+  color: $white;
+  height: 100%;
+  width: 100%;
+  //   margin-left: 1rem;
+  padding-left: 0;
+  //   margin-left: -2rem;
+}
+.sidebar__link {
+  color: $white;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  padding: 0.75rem 1rem 0.75rem 0.75rem;
+  margin: 1.5rem 0;
+  font-weight: 300;
+  border-radius: $br;
+  //   display: inline-flex;
+  &:hover {
+    background: $hover;
+  }
+}
+
+.sidebar__linkText {
+  display: none;
+}
+.sidebar__button {
+  color: $white;
+  background: $blue;
+  padding: 0.8rem 3.5rem;
+  border-radius: $br;
+  width: 100%;
+  max-width: 250px;
+  //   margin-top: 1rem;
+  margin-left: 5rem;
+  display: none;
+}
+.sidebar__imgWrap {
+  display: flex;
+  justify-content: center;
+  //   margin-left: -2.5rem;
+  //   width: 270px;
+  margin-top: auto;
+}
+.sidebar__img {
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: $br;
+  //   margin-left: -1.5rem;
+}
+.sidebar__userInfo {
+  display: none;
+  line-height: 1.25;
+}
+.sidebar__username {
+  font-weight: 800;
+  color: $white;
+}
+.sidebar__userHandle {
+  color: $white;
+  font-weight: 300;
+}
+.sidebar__dotsWrap {
+  display: none;
+  align-items: center;
+  margin-left: 1rem;
+}
+.sidebar__dots {
+  color: $white;
+  font-size: 1.25rem;
+}
+@media (min-width: $sm) {
+  .sidebar {
+    display: flex;
+  }
+}
+
+@media (min-width: $xl) {
+  .sidebar {
+    align-items: start;
+    width: 350px;
+  }
+  .sidebar__logoWrap {
+    margin-left: 6.75rem;
+  }
+  .sidebar__logo {
+    margin-left: 0;
+  }
+  .sidebar__link {
+    display: inline-flex;
+    padding: 0.75rem 1rem 0.75rem 0.75rem;
+  }
+  .sidebar__linksWrap {
+    margin-left: 6rem;
+  }
+  .sidebar__linkIcon {
+    margin-right: 1rem;
+  }
+  .sidebar__linkText {
+    display: inline;
+  }
+  .sidebar__button {
+    display: inline;
+    margin-left: auto;
+    font-size: 1.1rem;
+    font-weight: 500;
+    &hover {
+      background: #1aacda;
+    }
+  }
+  .sidebar__imgWrap {
+    margin-left: 6rem;
+    margin-top: auto;
+    margin-bottom: 1rem;
+    width: 270px;
+    padding: 1rem 2rem 1rem 1rem;
+    border-radius: $br;
+    cursor: pointer;
+    &:hover {
+      background: $hover;
+    }
+  }
+  .sidebar__img {
+    margin-left: 0;
+    height: auto;
+    width: 4rem;
+    margin-right: 1rem;
+  }
+  .sidebar__userInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .sidebar__dotsWrap {
+    display: flex;
+  }
+}
