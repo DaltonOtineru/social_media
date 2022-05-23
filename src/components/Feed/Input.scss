@@ -7,9 +7,18 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
   display: flex;
-  //   align-items: center;
 }
-.input::-webkit-scrollbar {
+.input__loading {
+  opacity: 0.6;
+  padding: 1rem 0.75rem;
+  border-bottom: 1px solid $grey;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  display: flex;
+}
+.input::-webkit-scrollbar,
+.input__loading::-webkit-scrollbar {
   display: none;
 }
 .input__img {
@@ -19,6 +28,7 @@
   cursor: pointer;
   margin-left: 0.5rem;
   justify-self: start;
+  //   object-fit: cover;
 }
 .input__textOuter {
   width: 100%;
@@ -38,6 +48,7 @@
 }
 .input__textArea {
   width: 95%;
+  max-width: 95%;
   margin-left: auto;
   margin-right: 1rem;
   background: transparent;
@@ -80,6 +91,7 @@
 }
 .selected__file {
   max-height: 380px;
+  max-width: 80%;
   object-fit: contain;
   border-radius: 1rem;
 }

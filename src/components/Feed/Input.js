@@ -69,7 +69,7 @@ const Input = () => {
   const addEmoji = () => {};
 
   return (
-    <div className="input">
+    <div className={loading ? 'input__loading' : 'input'}>
       <img src={avatar} alt="" className="input__img" />
       <div className="input__textOuter">
         <div
@@ -107,33 +107,34 @@ const Input = () => {
           </div>
         )}
 
-        <div className="emoji__container">
-          <div
-            className="emoji__wrap"
-            onClick={() => filePickerRef.current.click()}
-          >
-            <PhotographIcon className="emoji__icon" />
-            <input
-              type="file"
-              className="emoji__input"
-              ref={filePickerRef}
-              onChange={addImageToPost}
-            />
-          </div>
-          <div className="emoji__wrap">
-            <ChartBarIcon className="emoji__icon" />
-          </div>
-          <div
-            className="emoji__wrap"
-            onClick={() => setShowEmojis(!showEmojis)}
-          >
-            <EmojiHappyIcon className="emoji__icon" />
-          </div>
-          <div className="emoji__wrap">
-            <CalendarIcon className="emoji__icon" />
-          </div>
+        {!loading && (
+          <div className="emoji__container">
+            <div
+              className="emoji__wrap"
+              onClick={() => filePickerRef.current.click()}
+            >
+              <PhotographIcon className="emoji__icon" />
+              <input
+                type="file"
+                className="emoji__input"
+                ref={filePickerRef}
+                onChange={addImageToPost}
+              />
+            </div>
+            <div className="emoji__wrap">
+              <ChartBarIcon className="emoji__icon" />
+            </div>
+            <div
+              className="emoji__wrap"
+              onClick={() => setShowEmojis(!showEmojis)}
+            >
+              <EmojiHappyIcon className="emoji__icon" />
+            </div>
+            <div className="emoji__wrap">
+              <CalendarIcon className="emoji__icon" />
+            </div>
 
-          {/* {showEmojis && (
+            {/* {showEmojis && (
             <Picker
               onSelect={addEmoji}
               style={{
@@ -147,14 +148,17 @@ const Input = () => {
             />
           )} */}
 
-          <button
-            className={!input && !selectedFile ? 'disabled' : 'input__tweetBtn'}
-            disabled={!input && !selectedFile}
-            onClick={() => sendPost()}
-          >
-            Tweet
-          </button>
-        </div>
+            <button
+              className={
+                !input && !selectedFile ? 'disabled' : 'input__tweetBtn'
+              }
+              disabled={!input && !selectedFile}
+              onClick={() => sendPost()}
+            >
+              Tweet
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
