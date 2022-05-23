@@ -5,8 +5,14 @@
   flex-direction: column;
   align-items: center;
   padding: 0.5rem;
-  position: fixed;
-  height: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  flex: 0.1;
+  border-right: 1px solid $grey;
+  // margin-left: 1rem;
+  // width: 100px;
 }
 .sidebar__logoWrap {
   display: flex;
@@ -20,6 +26,7 @@
   cursor: pointer;
   &:hover {
     background: $hover;
+    transition: 200ms ease-in;
   }
 }
 .sidebar__linksWrap {
@@ -40,15 +47,19 @@
   align-items: center;
   font-size: 1.5rem;
   padding: 0.75rem 1rem 0.75rem 0.75rem;
-  margin: 1.5rem 0;
+  margin: 0.5rem 0;
   font-weight: 300;
   border-radius: $br;
+  text-decoration: none;
   //   display: inline-flex;
   &:hover {
     background: $hover;
+    transition: 200ms ease-in;
   }
 }
-
+.active {
+  font-weight: 900;
+}
 .sidebar__linkText {
   display: none;
 }
@@ -62,6 +73,13 @@
   //   margin-top: 1rem;
   margin-left: 5rem;
   display: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  &:hover {
+    background: $btnHoverBlue;
+    transition: 300ms ease-out;
+  }
 }
 .sidebar__imgWrap {
   display: flex;
@@ -71,9 +89,10 @@
   margin-top: auto;
 }
 .sidebar__img {
-  height: 2.5rem;
-  width: 2.5rem;
+  height: 2rem;
+  width: 2rem;
   border-radius: $br;
+  color: $white;
   //   margin-left: -1.5rem;
 }
 .sidebar__userInfo {
@@ -106,7 +125,9 @@
 @media (min-width: $xl) {
   .sidebar {
     align-items: start;
-    width: 350px;
+    // width: 370px;
+    display: flex;
+    flex: 0.3;
   }
   .sidebar__logoWrap {
     margin-left: 6.75rem;
@@ -115,7 +136,7 @@
     margin-left: 0;
   }
   .sidebar__link {
-    display: inline-flex;
+    display: inline-block;
     padding: 0.75rem 1rem 0.75rem 0.75rem;
   }
   .sidebar__linksWrap {
@@ -129,7 +150,7 @@
   }
   .sidebar__button {
     display: inline;
-    margin-left: auto;
+    margin-left: 5rem;
     font-size: 1.1rem;
     font-weight: 500;
     &hover {
@@ -137,7 +158,7 @@
     }
   }
   .sidebar__imgWrap {
-    margin-left: 6rem;
+    margin-left: 5rem;
     margin-top: auto;
     margin-bottom: 1rem;
     width: 270px;
@@ -146,13 +167,15 @@
     cursor: pointer;
     &:hover {
       background: $hover;
+      transition: 200 ease-out;
     }
   }
   .sidebar__img {
     margin-left: 0;
-    height: auto;
-    width: 4rem;
+    height: 3rem;
+    width: 3rem;
     margin-right: 1rem;
+    object-fit: cover;
   }
   .sidebar__userInfo {
     display: flex;

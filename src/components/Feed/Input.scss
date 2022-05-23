@@ -1,0 +1,142 @@
+@import '../../sass/variables.scss';
+
+.input {
+  padding: 1rem 0.75rem;
+  border-bottom: 1px solid $grey;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  display: flex;
+  //   align-items: center;
+}
+.input::-webkit-scrollbar {
+  display: none;
+}
+.input__img {
+  height: 60px;
+  width: 60px;
+  border-radius: $br;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  justify-self: start;
+}
+.input__textOuter {
+  width: 100%;
+  flex: flex-grow;
+  margin-left: 1rem;
+  //   display: flex;
+  //   flex-direction: column;
+}
+.input__textInner {
+  display: flex;
+  justify-content: end;
+}
+.input__textInner__withImg {
+  display: flex;
+  justify-content: end;
+  padding-bottom: 1rem;
+}
+.input__textArea {
+  width: 95%;
+  margin-left: auto;
+  margin-right: 1rem;
+  background: transparent;
+  outline: none;
+  border: none;
+  color: $white;
+  font-size: 1.1rem;
+  min-height: 50px;
+  border-bottom: 1px solid $grey;
+  resize: none;
+  overflow: auto;
+  font-family: 'Roboto';
+}
+.input__textArea::placeholder {
+  color: #adadad;
+  font-family: 'Roboto';
+}
+.selected__files {
+  position: relative;
+}
+.selected__filesInner {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  border-radius: $br;
+  background: #15181c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  top: 0.25rem;
+  left: 0.25rem;
+  &:hover {
+    background: rgba(44, 38, 39, 0.75);
+  }
+}
+.x__icon {
+  color: $white;
+  height: 1.25rem;
+}
+.selected__file {
+  max-height: 380px;
+  object-fit: contain;
+  border-radius: 1rem;
+}
+.emoji__container {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding-top: 0.75rem;
+}
+.emoji__wrap {
+  display: flex;
+  align-items: center;
+  margin-left: 0.75rem;
+  cursor: pointer;
+  border-radius: $br;
+  &:hover {
+    background: $iconHoverBlue;
+    transition: 200ms ease-in;
+  }
+}
+.emoji__icon {
+  height: 2rem;
+  color: $blue;
+  padding: 0.35rem;
+}
+.emoji__input {
+  display: none;
+}
+
+.input__tweetBtn {
+  margin-left: auto;
+  border-radius: $br;
+  background: $blue;
+  color: $white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  outline: none;
+  margin-right: 1rem;
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 15px;
+  &:hover {
+    background: $btnHoverBlue;
+  }
+}
+.disabled {
+  margin-left: auto;
+  border-radius: $br;
+  background: $blue;
+  color: $white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  outline: none;
+  margin-right: 1rem;
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 15px;
+  opacity: 0.5;
+  cursor: default;
+}

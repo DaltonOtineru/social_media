@@ -1,19 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const AccountLink = ({ title, children, path }) => {
+const SidebarLink = ({ text, Icon, path }) => {
   return (
-    <Link title={title} to={path}>
-      {children}
-      {title}
-    </Link>
+    <div className="sidebar__linkWrap">
+      <Link to={path} className="sidebar__link">
+        <Icon className="sidebar__linkIcon" />
+        <span className="sidebar__linkText">{text}</span>
+      </Link>
+    </div>
   );
 };
 
-export default AccountLink;
-
-{
-  /* <AccountLink title="Explore" path="/">
-  <BsTwitter className="sidebar__logo" />
-</AccountLink> */
-}
+export default SidebarLink;
