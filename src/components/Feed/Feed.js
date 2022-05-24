@@ -1,7 +1,6 @@
 import React from 'react';
 import './Feed.scss';
 import { BsStars } from 'react-icons/bs';
-import TweetBox from './TweetBox';
 import Input from './Input';
 
 const Feed = () => {

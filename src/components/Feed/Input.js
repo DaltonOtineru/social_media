@@ -69,7 +69,7 @@ const Input = () => {
   const addEmoji = () => {};
 
   return (
-    <div className={loading ? 'input__loading' : 'input'}>
+    <div className={loading ? 'input__lo ading' : 'input'}>
       <img src={avatar} alt="" className="input__img" />
       <div className="input__textOuter">
         <div

@@ -4,8 +4,16 @@ import './Sidebar.scss';
 import SidebarLinks from './SidebarLinks';
 import { BsTwitter } from 'react-icons/bs';
 import { BsThreeDots } from 'react-icons/bs';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../redux/userSlice';
 
 const Sidebar = () => {
+  const dispatch = useDispatch();
+
+  const logoutOfApp = () => {
+    dispatch(logout());
+  };
+
   return (
     <section className="sidebar">
       <div className="sidebar__logoWrap ">
@@ -15,9 +23,9 @@ const Sidebar = () => {
         <SidebarLinks classname="sidebar__links" />
       </div>
       <button className="sidebar__button ">Tweet</button>
-      <div className="sidebar__imgWrap ">
+      <div className="sidebar__imgWrap" onClick={logoutOfApp}>
         <img src={avatar} alt="" className="sidebar__img " />
-        {/* <BsTwitter className="sidebar__img" /> */}
+
         <div className="sidebar__userInfo">
           <h4 className="sidebar__username">Dalton Otineru</h4>
           <p className="sidebar__userHandle">@obey.giant</p>

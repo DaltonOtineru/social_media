@@ -1,19 +1,19 @@
 import React from 'react';
 import './App.scss';
-import { BrowserRouter as Router } from 'react-router-dom';
-import Sidebar from '../Sidebar/Sidebar';
-import Feed from '../Feed/Feed';
-import Widgets from '../Widgets/Widgets';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from '../../pages/Home';
+import Login from '../Login/Login';
+import Register from '../Register/Register';
 
 const AppRouter = () => {
   return (
     <>
       <Router>
-        <main className="app ">
-          <Sidebar />
-          <Feed />
-          <Widgets />
-        </main>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/register" element={<Register />} />
+        </Routes>
       </Router>
     </>
   );

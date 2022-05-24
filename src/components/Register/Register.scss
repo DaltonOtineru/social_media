@@ -1,0 +1,237 @@
+@import '../../sass/variables.scss';
+
+.register {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: grid;
+  place-items: center;
+}
+.register__form {
+  //   width: 400px;
+  //   max-width: 95vw;
+  width: 90vw;
+  min-height: 400px;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  margin-top: -5rem;
+}
+.register__iconWrap {
+  width: 75%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1rem;
+}
+.register__icon {
+  color: $blue;
+  text-align: center;
+  font-size: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.register__formInner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 95%;
+  //   width: 75%;
+  width: 100%;
+  margin-inline: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.register__header {
+  color: $white;
+  font-weight: 800;
+  text-align: center;
+  font-size: 2rem;
+  padding-bottom: 3rem;
+}
+.register__formGroup__Inputs {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 3rem;
+  //   margin-top: -3rem;
+}
+
+.register__inputField {
+  background: transparent;
+  border: 2px solid $grey;
+  color: $white;
+  border-radius: 0.5rem;
+  padding: 1.25rem 0.5rem;
+  outline: none;
+  font-size: 1rem;
+  font-family: 'Roboto';
+  margin-bottom: 1rem;
+  &::placeholder {
+    color: #71767a;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  &:focus {
+    outline: 2px solid $blue;
+    border: none;
+  }
+}
+.register__formGroup__btn {
+  margin-top: auto;
+}
+
+.register__btn {
+  width: 100%;
+  padding: 1rem 0;
+  border-radius: $br;
+  border: none;
+  outline: none;
+  background: $blue;
+  color: $white;
+  font-size: 1rem;
+  cursor: pointer;
+  &:hover {
+    background: $btnHoverBlue;
+    transition: 200ms ease-out;
+  }
+}
+.register__btn__disabled {
+  width: 100%;
+  padding: 1rem 0;
+  border-radius: $br;
+  border: none;
+  outline: none;
+  background: $disabledGrey;
+  color: $black;
+  font-size: 1rem;
+  cursor: defualt;
+  margin-top: auto;
+}
+
+@media (min-width: $md) {
+  .register__form {
+    border: 2px solid $grey;
+    padding: 3rem 1rem;
+    max-width: 75vw;
+  }
+  .register__formInner {
+    width: 90%;
+  }
+}
+@media (min-width: $lg) {
+  .register__form {
+    min-height: 550px;
+    width: 500px;
+  }
+}
+// .register {
+//   min-height: 100vh;
+//   min-width: 100vw;
+//   display: grid;
+//   place-items: center;
+// }
+// .register__form {
+//   //   width: 400px;
+//   max-width: 95vw;
+//   min-height: 400px;
+//   border: 2px solid $grey;
+//   padding: 1.5rem;
+//   border-radius: 0.5rem;
+//   margin-top: -5rem;
+// }
+// .register__iconWrap {
+//   width: 75%;
+//   margin: 0 auto;
+//   display: flex;
+//   justify-content: center;
+//   padding-bottom: 1rem;
+// }
+// .register__icon {
+//   color: $blue;
+//   text-align: center;
+//   font-size: 2rem;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
+// .register__formInner {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   height: 95%;
+//   width: 75%;
+//   margin-inline: auto;
+//   margin-top: auto;
+//   margin-bottom: auto;
+// }
+
+// .register__header {
+//   color: $white;
+//   font-weight: 800;
+//   text-align: center;
+//   font-size: 2rem;
+//   padding-bottom: 3rem;
+// }
+// .register__formGroup__Inputs {
+//   display: flex;
+//   flex-direction: column;
+//   padding-bottom: 3rem;
+//   //   margin-top: -3rem;
+// }
+
+// .register__inputField {
+//   background: transparent;
+//   border: 2px solid $grey;
+//   color: $white;
+//   border-radius: 0.5rem;
+//   padding: 1.25rem 0.5rem;
+//   outline: none;
+//   font-size: 1rem;
+//   font-family: 'Roboto';
+//   margin-bottom: 1rem;
+//   &::placeholder {
+//     color: #71767a;
+//     font-size: 1rem;
+//     font-weight: 400;
+//   }
+//   &:focus {
+//     outline: 2px solid $blue;
+//     border: none;
+//   }
+// }
+// .register__formGroup__btn {
+//   margin-top: auto;
+// }
+
+// .register__btn {
+//   width: 100%;
+//   padding: 1rem 0;
+//   border-radius: $br;
+//   border: none;
+//   outline: none;
+//   background: $blue;
+//   color: $white;
+//   font-size: 1rem;
+//   cursor: pointer;
+//   &:hover {
+//     background: $btnHoverBlue;
+//     transition: 200ms ease-out;
+//   }
+// }
+// .register__btn__disabled {
+//   width: 100%;
+//   padding: 1rem 0;
+//   border-radius: $br;
+//   border: none;
+//   outline: none;
+//   background: $disabledGrey;
+//   color: $black;
+//   font-size: 1rem;
+//   cursor: defualt;
+//   margin-top: auto;
+// }
+
+// @media (min-width: $xl) {
+//   .register__form {
+//     min-height: 550px;
+//     width: 500px;
+//   }
+// }
