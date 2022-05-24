@@ -66,10 +66,12 @@ const Input = () => {
     setShowEmojis(false);
   };
 
-  const addEmoji = () => {};
+  const addEmoji = (e) => {
+    e.preventDefault();
+  };
 
   return (
-    <div className={loading ? 'input__lo ading' : 'input'}>
+    <div className={loading ? 'input__loading' : 'input'}>
       <img src={avatar} alt="" className="input__img" />
       <div className="input__textOuter">
         <div
@@ -135,18 +137,18 @@ const Input = () => {
             </div>
 
             {/* {showEmojis && (
-            <Picker
-              onSelect={addEmoji}
-              style={{
-                position: 'absolute',
-                marginTop: '465px',
-                marginLeft: -40,
-                maxWidth: '320px',
-                borderRadius: '20px',
-              }}
-              theme="dark"
-            />
-          )} */}
+              <Picker
+                onSelect={addEmoji}
+                style={{
+                  position: 'absolute',
+                  marginTop: '465px',
+                  marginLeft: -40,
+                  maxWidth: '320px',
+                  borderRadius: '20px',
+                }}
+                theme="dark"
+              />
+            )} */}
 
             <button
               className={

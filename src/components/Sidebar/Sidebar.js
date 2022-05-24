@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import avatar from '../../assets/avatar.jpeg';
 import './Sidebar.scss';
 import SidebarLinks from './SidebarLinks';
-import { BsTwitter } from 'react-icons/bs';
-import { BsThreeDots } from 'react-icons/bs';
-import { useDispatch } from 'react-redux';
-import { logout } from '../../redux/userSlice';
+import { BsTwitter, BsThreeDots } from 'react-icons/bs';
+import { AiOutlineCheck } from 'react-icons/ai';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout, selectUser } from '../../redux/userSlice';
+import { useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {
+  const [showPopup, setShowPopup] = useState(false);
   const dispatch = useDispatch();
-
-  const logoutOfApp = () => {
+  const user = useSelector(selectUser);
+  const navigate = useNavigate();
+  const logoutOfApp = (e) => {
+    e.preventDefault();
     dispatch(logout());
+    navigate('/login');
   };
 
   return (
@@ -23,17 +28,54 @@ const Sidebar = () => {
         <SidebarLinks classname="sidebar__links" />
       </div>
       <button className="sidebar__button ">Tweet</button>
-      <div className="sidebar__imgWrap" onClick={logoutOfApp}>
-        <img src={avatar} alt="" className="sidebar__img " />
 
-        <div className="sidebar__userInfo">
-          <h4 className="sidebar__username">Dalton Otineru</h4>
-          <p className="sidebar__userHandle">@obey.giant</p>
+      {user && (
+        <div className="sidebar__imgWrap">
+          <img
+            src={avatar}
+            alt=""
+            className="sidebar__img"
+            onClick={() => setShowPopup(!showPopup)}
+          />
+          <div
+            className={`${
+              showPopup ? 'sidebar__popup__active' : 'sidebar__popup'
+            }`}
+          >
+            <div className="sidebar__popupInner">
+              <div className="popup__userInfo">
+                <img src={avatar} alt="user-photo" className="sidebar__img" />
+                <div className="popup__userDetails">
+                  <h4 className="popup__username">{user.displayName}</h4>
+                  <p className="popup__userHandle">{user.email}</p>
+                </div>
+                <AiOutlineCheck className="popup__check" />
+              </div>
+              <div className="popup__userActions">
+                <button className="popup__otherAcct">
+                  Sign into another account
+                </button>
+                <button className="popup__logout" onClick={logoutOfApp}>
+                  Log out {user.email}{' '}
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            className="sidebar__userInfo"
+            onClick={() => setShowPopup(!showPopup)}
+          >
+            <h4 className="sidebar__username">{user.displayName}</h4>
+            <p className="sidebar__userHandle">{user.email}</p>
+          </div>
+          <div
+            className="sidebar__dotsWrap"
+            onClick={() => setShowPopup(!showPopup)}
+          >
+            <BsThreeDots className="sidebar__dots" />
+          </div>
         </div>
-        <div className="sidebar__dotsWrap">
-          <BsThreeDots className="sidebar__dots" />
-        </div>
-      </div>
+      )}
     </section>
   );
 };
