@@ -19,6 +19,8 @@ import {
   updateDoc,
 } from '@firebase/firestore';
 import { getDownloadURL, ref, uploadString } from '@firebase/storage';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../redux/userSlice';
 
 const Input = () => {
   const [input, setInput] = useState('');
@@ -26,6 +28,7 @@ const Input = () => {
   const [showEmojis, setShowEmojis] = useState(false);
   const [loading, setLoading] = useState(false);
   const filePickerRef = useRef(null);
+  const user = useSelector(selectUser);
 
   const addImageToPost = (e) => {
     const reader = new FileReader();
@@ -42,10 +45,13 @@ const Input = () => {
     setLoading(true);
 
     const docRef = await addDoc(collection(db, 'posts'), {
-      // id: session.user.uid,
-      // username: session.user.name,
-      // userImg: session.user.image,
-      // tag: session.user.tag,
+      id: user.uid,
+      // username: user.name,
+      // userImg: user.image,
+      // tag: user.tag,
+      name: user.displayName,
+      email: user.email,
+      photoUrl: user.photoUrl || '',
       text: input,
       timestamp: serverTimestamp(),
     });
