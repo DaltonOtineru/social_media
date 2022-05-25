@@ -92,12 +92,15 @@
   padding-top: 2rem;
   align-items: center;
 }
-
+.post__icon {
+  margin-right: 4rem;
+  display: flex;
+}
 .post__icon > * {
   color: $disabledGrey;
   font-size: 1.8rem;
 
-  margin-right: 4rem;
+  //   margin-right: 4rem;
   cursor: pointer;
   padding: 0.35rem;
   border-radius: $br;
@@ -108,7 +111,10 @@
     transition: 200ms ease-in;
   }
 }
-
+.post__likeCount {
+  font-size: 0.95rem;
+  color: rgba(249, 24, 128, 1);
+}
 .post__iconBlue {
   &:hover {
   }
@@ -125,5 +131,11 @@
   &:hover {
     background: rgba(249, 24, 128, 0.1);
     color: rgba(249, 24, 128, 1);
+  }
+}
+.post__heartLiked {
+  color: rgba(249, 24, 128, 1) !important;
+  &:hover {
+    background: rgba(249, 24, 128, 0.1);
   }
 }

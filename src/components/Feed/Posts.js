@@ -18,25 +18,6 @@ const Posts = () => {
   const [posts, setPosts] = useState([]);
   const user = useSelector(selectUser);
 
-  //   useEffect(() => {
-  //     db.collection('posts')
-  //       .orderBy('timestamp', 'desc')
-  //       .onSnapshot((snapshot) =>
-  //         setPosts(
-  //           snapshot.docs.map((doc) => ({
-  //             id: doc.id,
-  //             data: doc.data(),
-  //             // name: doc.name,
-  //             // email: doc.email,
-  //             // photoUrl: doc.photoUrl || '',
-  //             // text: doc.text,
-  //             // timestamp: doc.timestamp,
-  //             // image: doc.image,
-  //           }))
-  //         )
-  //       );
-  //   }, []);
-
   useEffect(
     () =>
       onSnapshot(

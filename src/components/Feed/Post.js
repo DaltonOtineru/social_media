@@ -1,21 +1,50 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import avatar from '../../assets/avatar.jpeg';
-import { getAuth } from 'firebase/auth';
 import { BsTrash, BsChatDots } from 'react-icons/bs';
 import { DotsHorizontalIcon } from '@heroicons/react/outline';
 import { VscArrowSwap } from 'react-icons/vsc';
-import { AiOutlineHeart } from 'react-icons/ai';
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { FiDownload } from 'react-icons/fi';
 import { HiOutlineChartBar } from 'react-icons/hi';
 import { selectUser } from '../../redux/userSlice';
 import { db } from '../../firebase-config';
-import { doc, deleteDoc } from '@firebase/firestore';
+import {
+  doc,
+  deleteDoc,
+  setDoc,
+  onSnapshot,
+  collection,
+} from '@firebase/firestore';
 import Moment from 'react-moment';
 
 const Post = ({ id, data: { name, text, email, image, timestamp, uid } }) => {
   const user = useSelector(selectUser);
-  //   const user = getAuth().currentUser;
+
+  const [likes, setLikes] = useState([]);
+  const [liked, setLiked] = useState(false);
+
+  useEffect(() => {
+    onSnapshot(collection(db, 'posts', id, 'likes'), (snapshot) =>
+      setLikes(snapshot.docs)
+    );
+    console.log(likes);
+  }, [db, id, liked]);
+
+  useEffect(() => {
+    setLiked(likes.findIndex((like) => like.id === uid) !== -1);
+  }, [likes]);
+
+  const likePost = async () => {
+    if (liked) {
+      await deleteDoc(doc(db, 'posts', id, 'likes', uid));
+    } else {
+      await setDoc(doc(db, 'posts', id, 'likes', uid), {
+        username: uid,
+      });
+      console.log(likes);
+    }
+  };
 
   const deletePost = async (id) => {
     const docRef = doc(db, 'posts', id);
@@ -54,8 +83,15 @@ const Post = ({ id, data: { name, text, email, image, timestamp, uid } }) => {
           <div className="post__icon repost">
             <VscArrowSwap className="post__repost" />
           </div>
-          <div className="post__icon">
-            <AiOutlineHeart className="post__heart" />
+          <div className="post__icon" onClick={() => likePost()}>
+            {likes.length > 0 ? (
+              <>
+                <AiFillHeart className="post__heartLiked" />
+                <span className="post__likeCount">{likes.length}</span>{' '}
+              </>
+            ) : (
+              <AiOutlineHeart className="post__heart" />
+            )}
           </div>
           <div className="post__icon">
             <FiDownload />

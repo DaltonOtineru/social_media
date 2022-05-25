@@ -13,9 +13,7 @@ const Feed = () => {
           <BsStars className="feed__headerIcon" />
         </div>
       </div>
-
       <Input />
-      {/* Posts */}
       <Posts />
     </section>
   );
