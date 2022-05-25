@@ -16,4 +16,11 @@
   min-height: 100vh;
   margin: 0 auto;
   font-family: 'Roboto', sans-serif;
+  background: $black;
 }
+
+// @media (max-width: $lg) {
+//   .app {
+//     // max-width: 100vw;
+//   }
+// }

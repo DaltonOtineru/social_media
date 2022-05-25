@@ -3,10 +3,12 @@
 .post {
   display: flex;
   align-items: flex-start;
-  max-width: 100%;
+  max-width: 600px;
+  width: 100%;
   padding: 1rem;
   border-bottom: 1px solid $grey;
   cursor: pointer;
+  background: $black;
   &:hover {
     background: rgba(44, 38, 39, 0.1);
     transition: 400ms ease-in-out;
@@ -20,7 +22,7 @@
   border-radius: $br;
 }
 .post__details {
-  margin-left: auto;
+  margin-left: 2rem;
   max-width: 90%;
   display: flex;
   justify-content: right;
@@ -29,16 +31,51 @@
 .post__user {
   display: flex;
   padding-bottom: 0.25rem;
+  //   align-items: baseline;
   align-items: center;
+  width: 100%;
 }
 .post__name {
   text-transform: capitalize;
   margin-right: 0.25rem;
   font-weight: 800;
+  font-size: 0.94rem;
 }
 .post__handle {
   color: $disabledGrey;
+  margin-left: 0.1rem;
+  margin-right: 0.25rem;
+  font-size: 0.94rem;
+}
+.post__dot {
+  color: $disabledGrey;
+}
+.post__timestamp {
+  color: $disabledGrey;
   margin-left: 0.25rem;
+  font-size: 0.94rem;
+}
+.post__dotsWrap {
+  flex: 1;
+  display: flex;
+  width: 100%;
+  align-items: right;
+}
+.post__dots {
+  height: 1.75rem;
+  margin-bottom: -5px;
+  margin-left: auto;
+  color: $disabledGrey;
+  border-radius: $br;
+  padding: 0.25rem;
+  &:hover {
+    color: $blue;
+    background: $iconHoverBlue;
+    transition: 200ms ease-in;
+  }
+}
+.post__text {
+  font-size: 0.94rem;
 }
 .post__imgWrap {
   max-width: 100%;
@@ -46,6 +83,7 @@
 }
 .post__img {
   max-width: 95%;
+  max-height: 700px;
 
   border-radius: 1rem;
 }
@@ -53,28 +91,39 @@
   display: flex;
   padding-top: 2rem;
   align-items: center;
-  //   justify-content: space-evenly;
-  //   align-items: left;
-  //   margin-right: auto;
 }
-.post__icon {
-  &:hover {
-    color: $blue;
-  }
-}
+
 .post__icon > * {
   color: $disabledGrey;
-  font-size: 2rem;
-  margin-right: 5rem;
+  font-size: 1.8rem;
+
+  margin-right: 4rem;
   cursor: pointer;
   padding: 0.35rem;
   border-radius: $br;
+
   &:hover {
     color: $blue;
     background: $iconHoverBlue;
     transition: 200ms ease-in;
   }
 }
-.special {
-  font-size: 2.25rem;
+
+.post__iconBlue {
+  &:hover {
+  }
+}
+.post__repost {
+  &:hover {
+    background: rgba(0, 186, 124, 0.1);
+    color: rgba(0, 186, 124, 0.8);
+  }
+  //   font-size: 2.25rem;
+}
+.post__heart,
+.post__trash {
+  &:hover {
+    background: rgba(249, 24, 128, 0.1);
+    color: rgba(249, 24, 128, 1);
+  }
 }

@@ -45,7 +45,8 @@ const Input = () => {
     setLoading(true);
 
     const docRef = await addDoc(collection(db, 'posts'), {
-      id: user.uid,
+      uid: user.uid,
+      // id: doc.id,
       // username: user.name,
       // userImg: user.image,
       // tag: user.tag,
