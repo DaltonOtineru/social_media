@@ -121,6 +121,13 @@
 .emoji__input {
   display: none;
 }
+.emoji__picker {
+  position: absolute;
+  margin-top: 465px;
+  margin-left: -40px;
+  max-width: 320px;
+  border-radius: 1.25rem;
+}
 
 .input__tweetBtn {
   margin-left: auto;

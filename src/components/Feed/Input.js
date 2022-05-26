@@ -21,6 +21,7 @@ import {
 import { getDownloadURL, ref, uploadString } from '@firebase/storage';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../redux/userSlice';
+import EmojiPicker from './EmojiPicker';
 
 const Input = () => {
   const [input, setInput] = useState('');
@@ -73,8 +74,9 @@ const Input = () => {
     setShowEmojis(false);
   };
 
-  const addEmoji = (e) => {
-    e.preventDefault();
+  const addEmoji = (emoji) => {
+    setInput(input + emoji.native);
+    console.log(input);
   };
 
   return (
@@ -143,19 +145,13 @@ const Input = () => {
               <CalendarIcon className="emoji__icon" />
             </div>
 
-            {/* {showEmojis && (
-              <Picker
-                onSelect={addEmoji}
-                style={{
-                  position: 'absolute',
-                  marginTop: '465px',
-                  marginLeft: -40,
-                  maxWidth: '320px',
-                  borderRadius: '20px',
-                }}
+            {showEmojis && (
+              <EmojiPicker
+                // className="emoji__picker"
                 theme="dark"
+                onEmojiSelect={addEmoji}
               />
-            )} */}
+            )}
 
             <button
               className={

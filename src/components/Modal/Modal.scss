@@ -1,0 +1,154 @@
+@import '../../sass/variables.scss';
+
+.modal__hidden {
+  display: none;
+}
+.modal {
+  height: 350px;
+  width: 600px;
+  padding: 1rem;
+  background: transparent;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  background: #000;
+  border-radius: 1rem;
+  box-shadow: $popupBS;
+}
+.modal__xIcon {
+  height: 2rem;
+  width: 2rem;
+  padding: 0.25rem;
+  color: $white;
+  cursor: pointer;
+  border-radius: $br;
+  &:hover {
+    background: $hover;
+    transition: 300ms ease-in-out;
+  }
+}
+.modal__posterInfo {
+  display: flex;
+  align-items: left;
+}
+.modal__inner {
+  display: flex;
+  flex-direction: column;
+}
+.modal__name {
+  color: $white;
+  font-weight: 800;
+  margin-right: 0.25rem;
+  font-size: 0.95rem;
+}
+.modal__email {
+  margin-right: 0.25rem;
+}
+.modal__email,
+.modal__timestamp {
+  color: $disabledGrey;
+  font-weight: 400;
+  font-size: 0.95rem;
+}
+.modal__avatar__viewer,
+.modal__avatar__poster {
+  height: 3rem;
+  width: 3rem;
+  object-fit: cover;
+  border-radius: $br;
+}
+.modal__avatar__poster {
+  margin-right: 1rem;
+}
+.modal__postText {
+  color: $white;
+  font-size: 0.9rem;
+}
+.block__1 {
+  display: flex;
+  flex-direction: column;
+}
+.block__2 {
+  display: flex;
+}
+.modal__replyingTo {
+  color: $disabledGrey;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.reply__handle {
+  color: $blue;
+}
+.modal__inner_2 {
+  display: flex;
+}
+.modal__textArea {
+  flex: 1;
+  color: $white;
+  background: transparent;
+  font-size: 1.25rem;
+  border: none;
+  padding: 0 0.25rem;
+  font-family: 'Roboto';
+  outline: none;
+  resize: none;
+  min-height: 96px !important;
+  max-height: 134px !important;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::placeholder {
+    color: $disabledGrey;
+    font-size: 1.25rem;
+    font-family: 'Roboto';
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+.modal__avatar__viewer {
+  margin-right: 1rem;
+}
+.modal__actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: -4rem;
+  height: 80px;
+  max-width: 80%;
+  margin-inline: auto;
+}
+.modal__emojis {
+  display: flex;
+  align-items: left;
+}
+.modal__emoji {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: $br;
+  margin-right: 0.5rem;
+  &:hover {
+    background: $iconHoverBlue;
+    transition: 200ms ease-in;
+  }
+}
+.modal__emojiBtn {
+  height: 2rem;
+  padding: 0.35rem;
+  color: $blue;
+}
+.modal__btn {
+  border-radius: $br;
+  background: $blue;
+  color: $white;
+  outline: none;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  &:hover {
+    background: $btnHoverBlue;
+    transition: 300ms ease-in-out;
+  }
+}

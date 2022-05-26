@@ -6,6 +6,7 @@
     "@emoji-mart/data": "^1.0.1",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
+    "@headlessui/react": "^1.6.3",
     "@heroicons/react": "^1.0.6",
     "@mui/material": "^5.8.1",
     "@reduxjs/toolkit": "^1.8.1",
@@ -27,6 +28,7 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "react-uuid": "^1.0.2",
+    "recoil": "^0.7.3-alpha.2",
     "sass": "^1.52.1",
     "web-vitals": "^2.1.4"
   },

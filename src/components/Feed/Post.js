@@ -17,9 +17,14 @@ import {
   collection,
 } from '@firebase/firestore';
 import Moment from 'react-moment';
+import '../Modal/Modal.scss';
+import { useRecoilState } from 'recoil';
+import { modalState, postIdState } from '../../atoms/modalAtom';
 
 const Post = ({ id, data: { name, text, email, image, timestamp, uid } }) => {
   const user = useSelector(selectUser);
+  const [isOpen, setIsOpen] = useRecoilState(modalState);
+  const [postId, setPostId] = useRecoilState(postIdState);
 
   const [likes, setLikes] = useState([]);
   const [liked, setLiked] = useState(false);
@@ -29,11 +34,11 @@ const Post = ({ id, data: { name, text, email, image, timestamp, uid } }) => {
       setLikes(snapshot.docs)
     );
     console.log(likes);
-  }, [db, id, liked]);
+  }, [db, id]);
 
   useEffect(() => {
     setLiked(likes.findIndex((like) => like.id === uid) !== -1);
-  }, [likes]);
+  }, [likes, uid]);
 
   const likePost = async () => {
     if (liked) {
@@ -76,7 +81,13 @@ const Post = ({ id, data: { name, text, email, image, timestamp, uid } }) => {
         )}
         <div className="post__iconWrap">
           <div className="post__iconInner">
-            <div className="post__icon">
+            <div
+              className="post__icon"
+              onClick={() => {
+                setPostId(id);
+                setIsOpen(true);
+              }}
+            >
               <BsChatDots />
             </div>
           </div>
