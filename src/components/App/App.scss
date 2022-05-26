@@ -19,6 +19,17 @@
   background: $black;
   position: relative;
 }
+.app__modalOpen {
+  display: flex;
+  // flex-direction: row;
+  max-width: 1500px;
+  min-height: 100vh;
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+  background: $black;
+  position: relative;
+  opacity: 0.5;
+}
 
 // @media (max-width: $lg) {
 //   .app {

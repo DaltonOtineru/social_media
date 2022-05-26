@@ -1,8 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
 import { CgHashtag, CgList } from 'react-icons/cg';
-
 import { FiMail } from 'react-icons/fi';
 import { AiFillHome } from 'react-icons/ai';
 import { BsBookmark, BsPerson, BsBell } from 'react-icons/bs';
