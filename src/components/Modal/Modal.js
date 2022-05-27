@@ -21,17 +21,18 @@ import avatar from '../../assets/avatar.jpeg';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../redux/userSlice';
 import { useNavigate } from 'react-router-dom';
+import uuid from 'react-uuid';
 
 const Modal = () => {
   const user = useSelector(selectUser);
-  const [post, setPost] = useState('');
+  // const [post, setPost] = useState('');
   const [comment, setComment] = useState('');
   const [isOpen, setIsOpen] = useRecoilState(modalState);
   const [postId, setPostId] = useRecoilState(postIdState);
   const [postPage, setPostPage] = useRecoilState(postPageState);
 
   const navigate = useNavigate();
-
+  console.log(postPage);
   useEffect(
     () =>
       onSnapshot(doc(db, 'posts', postId), (snapshot) => {
@@ -42,11 +43,11 @@ const Modal = () => {
 
   const sendComment = async (e) => {
     e.preventDefault();
-
     await addDoc(collection(db, 'posts', postId, 'comments'), {
       uid: user.uid,
       name: user.displayName,
       email: user.email,
+      id: uuid(),
       // photoUrl: user.photoUrl || '',
       comment: comment,
       timestamp: serverTimestamp(),
@@ -55,7 +56,6 @@ const Modal = () => {
     setComment('');
 
     navigate(`/${postId}`);
-    console.log(postPage);
   };
 
   return (

@@ -111,17 +111,6 @@ const SinglePost = () => {
           </div>
         )}
         <div className="post__iconWrap">
-          <div className="post__iconInner">
-            <div
-              className="post__icon"
-              onClick={() => {
-                setPostId(postPage?.id);
-                setIsOpen(true);
-              }}
-            >
-              <BsChatDots />
-            </div>
-          </div>
           <div className="post__icon repost">
             <VscArrowSwap className="post__repost" />
           </div>

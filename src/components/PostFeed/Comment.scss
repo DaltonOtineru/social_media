@@ -1,0 +1,61 @@
+@import '../../sass/variables.scss';
+
+.comment {
+  width: 100%;
+  padding: 1rem;
+  border-bottom: 1px solid $grey;
+}
+.comment__inner {
+  display: flex !important;
+}
+.comment__left {
+  margin-right: 1rem;
+}
+.comment__userImg {
+  height: 3rem;
+  width: 3rem;
+  border-radius: $br;
+  object-fit: cover;
+}
+.comment__right {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.comment__userInfo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.comment__userName {
+  color: $white;
+  font-weight: 800;
+  margin-right: 0.25rem;
+  font-size: 0.9rem;
+}
+.comment__userHandle,
+.comment__timestamp,
+.comment__dot {
+  color: $disabledGrey;
+  font-size: 0.9rem;
+}
+.comment__userHandle,
+.comment__dot {
+  margin-right: 0.25rem;
+}
+.comment__trash {
+  color: $disabledGrey;
+  margin-left: auto;
+  cursor: pointer;
+  font-size: 1.8rem;
+  border-radius: $br;
+  padding: 0.35rem;
+  &:hover {
+    background: rgba(249, 24, 128, 0.1);
+    color: rgba(249, 24, 128, 1);
+    transition: 200ms ease-in;
+  }
+}
+.comment__text {
+  color: $white;
+}

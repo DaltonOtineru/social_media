@@ -49,9 +49,10 @@ const PostFeed = () => {
           <BsStars className="postFeed__headerIcon" />
         </div>
       </div>
-      <Input />
+      {/* <Input /> */}
       <SinglePost />
       <CommentReply />
+      <Comments comments={comments} />
     </section>
   );
 };

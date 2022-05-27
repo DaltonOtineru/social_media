@@ -23,7 +23,8 @@
 }
 .post__details {
   margin-left: 2rem;
-  max-width: 90%;
+  // max-width: 90%;
+  flex: 1;
   display: flex;
   justify-content: right;
   flex-direction: column;
