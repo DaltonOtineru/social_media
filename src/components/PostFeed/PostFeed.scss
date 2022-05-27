@@ -1,0 +1,88 @@
+@import '../../sass/variables.scss';
+.post__feed {
+  min-width: fit-content;
+  overflow-y: scroll;
+  flex: 0.8;
+  border-right: 1px solid $grey;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  //   min-height: 150vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+}
+.post__feed::-webkit-scrollbar {
+  display: none;
+}
+
+.postFeed__header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  //   height: 4rem;
+
+  background: $black;
+  border-bottom: 1px solid $grey;
+}
+
+.postFeed__headerInner {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  margin-inline: auto;
+  padding: 1rem 0;
+  font-size: 1.25rem;
+  align-items: center;
+}
+.postFeed__homeHeader {
+  color: $white;
+  font-weight: 500;
+  padding: 0.35rem;
+}
+
+.postFeed__headerIcon {
+  color: $white;
+  border-radius: $br;
+  height: 2.2rem;
+  width: 2.2rem;
+  padding: 0.35rem;
+  cursor: pointer;
+  &:hover {
+    background: $hover;
+    transition: 200ms ease-in;
+  }
+}
+
+@media (min-width: $lg) {
+  .feed {
+    flex: 0.5;
+  }
+}
+@media (min-width: $xl) {
+  // .feed {
+  //   flex: 0.5;
+  // }
+}
+
+// Single Post Header //
+.postFeed__homeHeader {
+  display: flex;
+  align-items: center;
+}
+.postFeed__arrow {
+  height: 1.75rem;
+  width: 1.75rem;
+  padding: 0.25rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  border-radius: $br;
+  &:hover {
+    background: $hover;
+    transition: 300ms ease-in-out;
+  }
+}
+.postFeed__headerText {
+  font-size: 1.25rem;
+}

@@ -1,0 +1,90 @@
+@import '../../sass//variables.scss';
+
+.post__commentWrap {
+  display: flex;
+  padding: 1rem;
+  border-bottom: 1px solid $grey;
+}
+.post__commentTop {
+  display: flex;
+  // padding: ;
+}
+.post__commentImg {
+  height: 3rem;
+  width: 3rem;
+  object-fit: cover;
+  border-radius: $br;
+}
+.post__commentInput {
+  flex: 1;
+  color: $white;
+  background: transparent;
+  font-size: 1.25rem;
+  border: none;
+  padding: 0.25rem;
+  font-family: 'Roboto';
+  outline: none;
+  resize: none;
+  min-height: 96px !important;
+  max-height: 134px !important;
+  width: 100%;
+  margin-left: 0.5rem;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::placeholder {
+    color: $disabledGrey;
+    font-size: 1.25rem;
+    font-family: 'Roboto';
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+.post__commentBottom {
+  // max-width: 90%;
+  flex: 1;
+  justify-self: right;
+}
+.post__emojiOuter {
+  display: flex;
+}
+.post__emojiwrap {
+  display: flex;
+}
+.post__emoji {
+  border-radius: $br;
+  margin-right: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  &:hover {
+    background: $iconHoverBlue;
+    transition: 200ms ease-in;
+  }
+}
+.post__commentEmoji {
+  height: 2rem;
+  width: 2rem;
+  padding: 0.25rem;
+
+  color: $blue;
+}
+
+.post__replyButton {
+  border-radius: $br;
+  background: $blue;
+  color: $white;
+  outline: none;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  margin-left: auto;
+  font-weight: 800;
+  &:hover {
+    background: $btnHoverBlue;
+    transition: 300ms ease-in-out;
+  }
+}

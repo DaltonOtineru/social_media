@@ -20,6 +20,7 @@ import Moment from 'react-moment';
 import '../Modal/Modal.scss';
 import { useRecoilState } from 'recoil';
 import { modalState, postIdState } from '../../atoms/modalAtom';
+import { useNavigate } from 'react-router-dom';
 
 const Post = ({ id, data: { name, text, email, image, timestamp, uid } }) => {
   const user = useSelector(selectUser);
@@ -28,6 +29,8 @@ const Post = ({ id, data: { name, text, email, image, timestamp, uid } }) => {
 
   const [likes, setLikes] = useState([]);
   const [liked, setLiked] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     onSnapshot(collection(db, 'posts', id, 'likes'), (snapshot) =>
@@ -51,13 +54,19 @@ const Post = ({ id, data: { name, text, email, image, timestamp, uid } }) => {
     }
   };
 
-  const deletePost = async (id) => {
+  const deletePost = async (id, e) => {
+    e.stopPropagation();
     const docRef = doc(db, 'posts', id);
     await deleteDoc(docRef);
   };
 
+  const viewPost = () => {
+    setPostId(id);
+    navigate(`/${postId}`);
+  };
+
   return (
-    <div className="post" key={id} id={id}>
+    <div className="post" key={id} id={id} onClick={() => viewPost()}>
       <div className="post__avatar">
         <img src={avatar} className="avatar__img" />
       </div>
@@ -83,7 +92,8 @@ const Post = ({ id, data: { name, text, email, image, timestamp, uid } }) => {
           <div className="post__iconInner">
             <div
               className="post__icon"
-              onClick={() => {
+              onClick={(e) => {
+                e.stopPropagation();
                 setPostId(id);
                 setIsOpen(true);
               }}
@@ -94,7 +104,13 @@ const Post = ({ id, data: { name, text, email, image, timestamp, uid } }) => {
           <div className="post__icon repost">
             <VscArrowSwap className="post__repost" />
           </div>
-          <div className="post__icon" onClick={() => likePost()}>
+          <div
+            className="post__icon"
+            onClick={(e) => {
+              e.stopPropagation();
+              likePost();
+            }}
+          >
             {likes.length > 0 ? (
               <>
                 <AiFillHeart className="post__heartLiked" />
@@ -104,15 +120,21 @@ const Post = ({ id, data: { name, text, email, image, timestamp, uid } }) => {
               <AiOutlineHeart className="post__heart" />
             )}
           </div>
-          <div className="post__icon">
+          <div className="post__icon" onClick={(e) => e.stopPropagation()}>
             <FiDownload />
           </div>
           {user.uid === uid ? (
-            <div className="post__icon" onClick={() => deletePost(id)}>
+            <div
+              className="post__icon"
+              onClick={(e) => {
+                e.stopPropagation();
+                deletePost(id);
+              }}
+            >
               <BsTrash className="post__trash" />
             </div>
           ) : (
-            <div className="post__icon">
+            <div className="post__icon" onClick={(e) => e.stopPropagation()}>
               <HiOutlineChartBar className="post__iconBlue" />
             </div>
           )}

@@ -23,6 +23,8 @@ import { useNavigate } from 'react-router-dom';
 import { HiOutlineChartBar } from 'react-icons/hi';
 import { FiDownload } from 'react-icons/fi';
 
+// import '../Feed/Post.scss';
+
 const SinglePost = () => {
   const user = useSelector(selectUser);
   const [post, setPost] = useState('');

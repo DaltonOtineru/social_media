@@ -232,7 +232,7 @@
     cursor: pointer;
     &:hover {
       background: $hover;
-      transition: 200 ease-out;
+      transition: 500ms ease-in-out;
     }
   }
   .sidebar__img {
