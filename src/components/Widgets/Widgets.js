@@ -1,7 +1,10 @@
 import React from 'react';
 import './Widgets.scss';
 import { SearchIcon } from '@heroicons/react/outline';
-import avatar from '../../assets/avatar.jpeg';
+import react from '../../assets/react.png';
+import javascript from '../../assets/js.jpeg';
+import next from '../../assets/nextjs.png';
+import firebase from '../../assets/firebase.jpeg';
 import WhoToFollowItem from './WhoToFollowItem';
 
 const Widgets = () => {
@@ -20,58 +23,24 @@ const Widgets = () => {
             />
           </div>
         </div>
-        <div className="widgets__relevant">
-          <div className="widgets__relevantHeader">
-            <h3>Relevant People</h3>
-          </div>
-          <div className="widgets__relevantBottom">
-            <div className="relevant__imgWrap">
-              <img src={avatar} alt="" className="relevant__avatar" />
-            </div>
-            <div className="relevant__info">
-              <div className="relevant__infoTop">
-                <div className="relevant__titles">
-                  <div className="relevant__name">DataDog, Inc.</div>
-                  <div className="relevant__handle">@datadoghq</div>
-                </div>
-                <div className="relevant__follow">
-                  <button className="relevant__btn">Follow</button>
-                </div>
-              </div>
-              <div className="relevant__infoBottom">
-                <p>
-                  Datadog is the monitoring and security platform for cloud
-                  applications
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+
         <div className="widgets__whoToFollow">
           <div className="whoToFollow__header">
             <h3 className="header__text">Who to follow</h3>
           </div>
           <div className="widgets__whoToFollowItems">
+            <WhoToFollowItem name="React" handle="@reactjs" img={react} />
             <WhoToFollowItem
-              name="Bill Gates"
-              handle="@bill__gates"
-              img={avatar}
+              name="JavaScript"
+              handle="@javascript"
+              img={javascript}
             />
             <WhoToFollowItem
-              name="Elon Musk"
-              handle="@occupy__mars"
-              img={avatar}
+              name="Firebase"
+              handle="@firebase"
+              img={firebase}
             />
-            <WhoToFollowItem
-              name="Athena Coronado"
-              handle="@psycho-nene"
-              img={avatar}
-            />
-            <WhoToFollowItem
-              name="Kaya Coronado"
-              handle="@mommy-longlegs"
-              img={avatar}
-            />
+            <WhoToFollowItem name="Next.js" handle="@nextjs" img={next} />
           </div>
         </div>
       </div>

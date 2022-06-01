@@ -8,7 +8,7 @@ import SidebarLink from './SidebarLink';
 const SidebarLinks = () => {
   return (
     <>
-      <SidebarLink text="Home" Icon={AiFillHome} path="/" active />
+      <SidebarLink text="Home" Icon={AiFillHome} path="/home" active />
       <SidebarLink text="Explore" Icon={CgHashtag} path="/" />
       <SidebarLink text="Notifications" Icon={BsBell} path="/" />
       <SidebarLink text="Messages" Icon={FiMail} path="/" />

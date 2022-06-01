@@ -10,7 +10,7 @@ function EmojiPicker(props) {
     new Picker({ ...props, data, ref });
   }, []);
 
-  return <div className="emoji__picker" ref={ref} />;
+  return <div className={props.className} ref={ref} />;
 }
 
 export default EmojiPicker;

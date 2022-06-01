@@ -15,7 +15,7 @@ const App = () => {
             uid: userAuth.uid,
             displayName: userAuth.displayName,
             photoUrl: userAuth.photoURL,
-            userName: userAuth.userName,
+            // username: userAuth.username,
           })
         );
       } else {

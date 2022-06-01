@@ -17,11 +17,12 @@ import {
   PhotographIcon,
   XIcon,
 } from '@heroicons/react/outline';
-import avatar from '../../assets/avatar.jpeg';
+
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../redux/userSlice';
 import { useNavigate } from 'react-router-dom';
 import uuid from 'react-uuid';
+import EmojiPicker from '../Feed/EmojiPicker';
 
 const Modal = () => {
   const user = useSelector(selectUser);
@@ -30,6 +31,7 @@ const Modal = () => {
   const [isOpen, setIsOpen] = useRecoilState(modalState);
   const [postId, setPostId] = useRecoilState(postIdState);
   const [postPage, setPostPage] = useRecoilState(postPageState);
+  const [showEmojis, setShowEmojis] = useState(false);
 
   const navigate = useNavigate();
   console.log(postPage);
@@ -47,8 +49,9 @@ const Modal = () => {
       uid: user.uid,
       name: user.displayName,
       email: user.email,
+      // username: user.username || '',
       id: uuid(),
-      // photoUrl: user.photoUrl || '',
+      photoUrl: user.photoUrl || '',
       comment: comment,
       timestamp: serverTimestamp(),
     });
@@ -58,17 +61,30 @@ const Modal = () => {
     navigate(`/${postId}`);
   };
 
+  const addEmoji = (e) => {
+    let sym = e.unified.split('-');
+    let codesArray = [];
+    sym.forEach((el) => codesArray.push('0x' + el));
+    let emoji = String.fromCodePoint(...codesArray);
+    setComment(comment + emoji);
+    setShowEmojis(false);
+  };
+
   return (
     <div className={isOpen ? 'modal' : 'modal__hidden'}>
       <XIcon className="modal__xIcon" onClick={() => setIsOpen(false)} />
       <div className="modal__inner">
         <div className="modal__postInfo">
           <div className="modal__posterInfo">
-            <img src={avatar} alt="" className="modal__avatar__poster" />
+            <img
+              src={postPage?.photoUrl}
+              alt=""
+              className="modal__avatar__poster"
+            />
             <div className="block__1">
               <div className="block__2">
                 <p className="modal__name">{postPage?.name}</p>
-                <p className="modal__email">{postPage?.email}</p>
+                {/* <p className="modal__email">{postPage?.email}</p> */}
                 <p className="modal__timestamp">
                   <Moment fromNow className="post__timestamp">
                     {postPage?.timestamp?.toDate()}
@@ -79,7 +95,7 @@ const Modal = () => {
                 <p className="modal__postText">{postPage?.text}</p>
                 <p className="modal__replyingTo">
                   Replying to{' '}
-                  <span className="reply__handle">{postPage?.email}</span>
+                  <span className="reply__handle">{postPage?.name}</span>
                 </p>
               </div>
             </div>
@@ -88,7 +104,7 @@ const Modal = () => {
       </div>
       <div className="modal__inner_2">
         {/* <div className="modal__userInfo"> */}
-        <img src={avatar} alt="" className="modal__avatar__viewer" />
+        <img src={user.photoUrl} alt="" className="modal__avatar__viewer" />
         <textarea
           className="modal__textArea"
           rows="4"
@@ -105,7 +121,10 @@ const Modal = () => {
           <div className="modal__emoji">
             <ChartBarIcon className="modal__emojiBtn" />
           </div>
-          <div className="modal__emoji">
+          <div
+            className="modal__emoji"
+            onClick={() => setShowEmojis(!showEmojis)}
+          >
             <EmojiHappyIcon className="modal__emojiBtn" />
           </div>
           <div className="modal__emoji">
@@ -117,6 +136,13 @@ const Modal = () => {
             Reply
           </button>
         </div>
+        {showEmojis && (
+          <EmojiPicker
+            className="emoji__modalComment"
+            theme="dark"
+            onEmojiSelect={addEmoji}
+          />
+        )}
       </div>
     </div>
   );

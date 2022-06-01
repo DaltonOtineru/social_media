@@ -53,7 +53,7 @@ const Input = () => {
       // tag: user.tag,
       name: user.displayName,
       email: user.email,
-      username: user.username,
+      // username: user.username,
       photoUrl: user.photoUrl || '',
       text: input,
       timestamp: serverTimestamp(),
@@ -78,6 +78,7 @@ const Input = () => {
   const addEmoji = (emoji) => {
     setInput(input + emoji.native);
     console.log(input);
+    setShowEmojis(false);
   };
 
   return (
@@ -148,7 +149,7 @@ const Input = () => {
 
             {showEmojis && (
               <EmojiPicker
-                // className="emoji__picker"
+                className="emoji__picker"
                 theme="dark"
                 onEmojiSelect={addEmoji}
               />

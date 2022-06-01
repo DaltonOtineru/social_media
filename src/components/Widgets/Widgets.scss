@@ -5,18 +5,26 @@
   flex: 0.4;
   display: none;
   max-width: 400px;
+  // position: relative;
+  position: sticky;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  // left: 0;
 }
 .widgets__inner {
   padding: 1rem;
+
+  z-index: 100;
   // margin-left: 1rem;
 }
 .widgets__searchHeader {
   width: 100%;
   background: $black;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  padding: 0.75rem 0;
+  // position: sticky;
+  // top: 0;
+  // z-index: 100;
+  // padding: 0.75rem 0;
 }
 .widgets__searchWrap {
   display: flex;
@@ -116,14 +124,21 @@
   height: 3rem;
   width: 3rem;
   object-fit: cover;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
 }
 .widgets__followItemRight {
   display: flex;
   flex: 1;
 }
+.widgets__followAccountInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+}
 .widgets__followAccountName {
   font-size: 15px;
+  padding-right: 4rem;
 }
 .widgets__followAccountHndle {
   color: $disabledGrey;

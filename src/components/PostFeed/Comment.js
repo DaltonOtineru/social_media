@@ -26,12 +26,16 @@ const Comment = ({ comment, id }) => {
     <div className="comment">
       <div className="comment__inner">
         <div className="comment__left">
-          <img src={avatar} alt="user avatar" className="comment__userImg" />
+          <img
+            src={comment?.photoUrl}
+            alt="user avatar"
+            className="comment__userImg"
+          />
         </div>
         <div className="comment__right">
           <div className="comment__userInfo">
             <p className="comment__userName">{comment?.name}</p>
-            <span className="comment__userHandle">{comment?.email}</span>
+            {/* <span className="comment__userHandle">{comment?.email}</span> */}
             <span className="comment__dot">•</span>
             <Moment fromNow className="comment__timestamp">
               {comment?.timestamp?.toDate()}

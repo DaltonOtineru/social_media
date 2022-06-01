@@ -160,3 +160,8 @@
   opacity: 0.5;
   cursor: default;
 }
+@media (max-width: 500px) {
+  .input {
+    padding: 1rem 0;
+  }
+}

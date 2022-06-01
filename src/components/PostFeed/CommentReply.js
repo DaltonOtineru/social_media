@@ -20,11 +20,13 @@ import {
 } from '@firebase/firestore';
 import { selectUser } from '../../redux/userSlice';
 import { useSelector } from 'react-redux';
+import EmojiPicker from '../Feed/EmojiPicker';
 
 const CommentReply = () => {
   const user = useSelector(selectUser);
   const [reply, setReply] = useState('');
   const [postId, setPostId] = useRecoilState(postIdState);
+  const [showEmojis, setShowEmojis] = useState(false);
 
   const sendComment = async (e) => {
     e.preventDefault();
@@ -34,6 +36,7 @@ const CommentReply = () => {
       email: user.email,
       photoUrl: user.photoUrl || '',
       comment: reply,
+      // username: user.username,
       timestamp: serverTimestamp(),
     });
 
@@ -41,6 +44,15 @@ const CommentReply = () => {
 
     // navigate(`/${postId}`);
     // console.log(postPage);
+  };
+
+  const addEmoji = (e) => {
+    let sym = e.unified.split('-');
+    let codesArray = [];
+    sym.forEach((el) => codesArray.push('0x' + el));
+    let emoji = String.fromCodePoint(...codesArray);
+    setReply(reply + emoji);
+    setShowEmojis(false);
   };
 
   return (
@@ -64,7 +76,10 @@ const CommentReply = () => {
             <div className="post__emoji">
               <PhotographIcon className="post__commentEmoji" />
             </div>
-            <div className="post__emoji">
+            <div
+              className="post__emoji"
+              onClick={() => setShowEmojis(!showEmojis)}
+            >
               <EmojiHappyIcon className="post__commentEmoji" />
             </div>
             <div className="post__emoji">
@@ -74,6 +89,13 @@ const CommentReply = () => {
           <button className="post__replyButton" onClick={sendComment}>
             Reply
           </button>
+          {showEmojis && (
+            <EmojiPicker
+              className="emoji__pickerComment"
+              theme="dark"
+              onEmojiSelect={addEmoji}
+            />
+          )}
         </div>
       </div>
     </div>

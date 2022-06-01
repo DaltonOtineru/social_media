@@ -62,3 +62,8 @@
     flex: 0.5;
   }
 }
+@media (max-width: 500px) {
+  .feed {
+    flex: 1;
+  }
+}

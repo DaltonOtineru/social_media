@@ -25,7 +25,7 @@ const Register = () => {
           .updateProfile({
             displayName: name,
             photoURL: profilePic,
-            username: username,
+            // username: username,
           })
           .then(() => {
             dispatch(
@@ -34,14 +34,14 @@ const Register = () => {
                 uid: userAuth.user.uid,
                 displayName: userAuth.user.displayName,
                 photoUrl: profilePic,
-                username: username,
+                // username: username,
               })
             );
             setName('');
             setEmail('');
             setPassword('');
 
-            navigate('/');
+            navigate('/home');
           });
       })
       .catch((error) => console.log(error.message));
@@ -64,14 +64,14 @@ const Register = () => {
               onChange={(e) => setName(e.target.value)}
               className="register__inputField register__email"
             />
-            <input
+            {/* <input
               required
               type="text"
               placeholder="Username"
               defaultValue={username}
               onChange={(e) => setUsername(e.target.value)}
               className="register__inputField register__email"
-            />
+            /> */}
             <input
               required
               type="text"

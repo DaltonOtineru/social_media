@@ -58,7 +58,7 @@ const Post = ({
   };
 
   const deletePost = async (id, e) => {
-    e.stopPropagation();
+    // e.stopPropagation();
     const docRef = doc(db, 'posts', id);
     await deleteDoc(docRef);
   };
@@ -76,7 +76,7 @@ const Post = ({
       <div className="post__details">
         <div className="post__user">
           <p className="post__name">{name}</p>
-          <p className="post__handle">@{username}</p>
+          {/* <p className="post__handle">{email}</p> */}
           <span className="post__dot">•</span>
           <Moment fromNow className="post__timestamp">
             {timestamp?.toDate()}

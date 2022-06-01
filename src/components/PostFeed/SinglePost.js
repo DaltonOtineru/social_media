@@ -32,6 +32,7 @@ const SinglePost = () => {
   const [isOpen, setIsOpen] = useRecoilState(modalState);
   const [postId, setPostId] = useRecoilState(postIdState);
   const [postPage, setPostPage] = useRecoilState(postPageState);
+  const navigate = useNavigate();
   //   const [likes, setLikes] = useState([]);
   //   const [liked, setLiked] = useState(false);
 
@@ -87,6 +88,13 @@ const SinglePost = () => {
     // navigate(`/${postId}`);
   };
 
+  const deletePost = async () => {
+    // e.stopPropagation();
+    const docRef = doc(db, 'posts', postId);
+    await deleteDoc(docRef);
+    navigate('/home');
+  };
+
   return (
     <div className="post" key={postPage?.id} id={postPage?.id}>
       <div className="post__avatar">
@@ -95,7 +103,7 @@ const SinglePost = () => {
       <div className="post__details">
         <div className="post__user">
           <p className="post__name">{postPage?.name}</p>
-          <p className="post__handle">@{postPage?.username}</p>
+          {/* <p className="post__handle">{postPage?.email}</p> */}
           <span className="post__dot">•</span>
           <Moment fromNow className="post__timestamp">
             {postPage?.timestamp?.toDate()}
@@ -130,7 +138,13 @@ const SinglePost = () => {
             <FiDownload />
           </div>
           {user.uid === postPage?.uid ? (
-            <div className="post__icon">
+            <div
+              className="post__icon"
+              onClick={(e) => {
+                e.stopPropagation();
+                deletePost(postId);
+              }}
+            >
               <BsTrash className="post__trash" />
             </div>
           ) : (

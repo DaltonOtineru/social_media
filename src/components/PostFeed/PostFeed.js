@@ -42,7 +42,7 @@ const PostFeed = () => {
           <span className="postFeed__homeHeader">
             <ArrowLeftIcon
               className="postFeed__arrow"
-              onClick={() => navigate('/')}
+              onClick={() => navigate('/home')}
             />
             <h3 className="postFeed__headerText">Tweet</h3>
           </span>

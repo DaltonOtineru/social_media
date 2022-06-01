@@ -22,11 +22,13 @@ const Login = () => {
             email: userAuth.user.email,
             uid: userAuth.user.uid,
             displayName: userAuth.user.displayName,
+            photoUrl: userAuth.user.photoURL,
+            // username: userAuth.user.username,
           })
         );
         setEmail('');
         setPassword('');
-        navigate('/');
+        navigate('/home');
       })
       .catch((error) => console.log(error.message));
   };

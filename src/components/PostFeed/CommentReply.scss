@@ -14,6 +14,7 @@
   width: 3rem;
   object-fit: cover;
   border-radius: $br;
+  margin-left: 0.5rem;
 }
 .post__commentInput {
   flex: 1;
@@ -49,6 +50,7 @@
 }
 .post__emojiOuter {
   display: flex;
+  position: relative;
 }
 .post__emojiwrap {
   display: flex;
@@ -58,7 +60,8 @@
   margin-right: 0.5rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  // justify-content: center;
+  height: 2rem;
   cursor: pointer;
   &:hover {
     background: $iconHoverBlue;
@@ -67,8 +70,8 @@
 }
 .post__commentEmoji {
   height: 2rem;
-  width: 2rem;
-  padding: 0.25rem;
+  // width: 2rem;
+  padding: 0.35rem;
 
   color: $blue;
 }
@@ -87,4 +90,11 @@
     background: $btnHoverBlue;
     transition: 300ms ease-in-out;
   }
+}
+.emoji__pickerComment {
+  position: absolute;
+  margin-top: 50px;
+  margin-left: -40px;
+  max-width: 320px;
+  border-radius: 1.25rem;
 }
