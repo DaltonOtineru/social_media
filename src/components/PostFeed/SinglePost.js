@@ -77,7 +77,7 @@ const SinglePost = () => {
       uid: user.uid,
       name: user.displayName,
       email: user.email,
-      // photoUrl: user.photoUrl || '',
+      photoUrl: user.photoUrl || '',
       comment: comment,
       timestamp: serverTimestamp(),
     });
@@ -90,12 +90,12 @@ const SinglePost = () => {
   return (
     <div className="post" key={postPage?.id} id={postPage?.id}>
       <div className="post__avatar">
-        <img src={avatar} className="avatar__img" />
+        <img src={postPage?.photoUrl} className="avatar__img" />
       </div>
       <div className="post__details">
         <div className="post__user">
           <p className="post__name">{postPage?.name}</p>
-          <p className="post__handle">{postPage?.email}</p>
+          <p className="post__handle">@{postPage?.username}</p>
           <span className="post__dot">•</span>
           <Moment fromNow className="post__timestamp">
             {postPage?.timestamp?.toDate()}

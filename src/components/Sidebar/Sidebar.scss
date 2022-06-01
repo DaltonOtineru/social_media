@@ -186,12 +186,12 @@
   }
 }
 
-@media (min-width: $xl) {
+@media (min-width: 1300px) {
   .sidebar {
     align-items: start;
     // width: 370px;
     display: flex;
-    flex: 0.3;
+    // flex: 0.3;
   }
   .sidebar__logoWrap {
     margin-left: 6.75rem;
@@ -262,3 +262,8 @@
     // margin-top: auto;
   }
 }
+// @media (min-width: 1300px) {
+//   .sidebar__linkText {
+//     display: inline;
+//   }
+// }

@@ -2,7 +2,6 @@ import React from 'react';
 import avatar from '../../assets/avatar.jpeg';
 import Moment from 'react-moment';
 import './Comment.scss';
-import userEvent from '@testing-library/user-event';
 import { BsTrash } from 'react-icons/bs';
 import { selectUser } from '../../redux/userSlice';
 import { useSelector } from 'react-redux';
@@ -17,7 +16,7 @@ const Comment = ({ comment, id }) => {
   const [postPage, setPostPage] = useRecoilState(postPageState);
 
   const deleteComment = async (id) => {
-    const docRef = doc(collection(db, 'posts', postId, 'comments', comment.id));
+    const docRef = doc(db, 'posts', postId, 'comments', comment.id);
     await deleteDoc(docRef);
     console.log(docRef);
   };

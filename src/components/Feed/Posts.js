@@ -27,6 +27,7 @@ const Posts = () => {
             snapshot.docs.map((doc) => ({
               id: doc.id,
               uid: doc.uid,
+              username: doc.userName,
               data: doc.data(),
             }))
           );

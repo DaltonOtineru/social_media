@@ -32,7 +32,7 @@ const Sidebar = () => {
       {user && (
         <div className="sidebar__imgWrap">
           <img
-            src={avatar}
+            src={user.photoUrl}
             alt=""
             className="sidebar__img"
             onClick={() => setShowPopup(!showPopup)}
@@ -44,10 +44,14 @@ const Sidebar = () => {
           >
             <div className="sidebar__popupInner">
               <div className="popup__userInfo">
-                <img src={avatar} alt="user-photo" className="sidebar__img" />
+                <img
+                  src={user.photoUrl}
+                  alt="user-photo"
+                  className="sidebar__img"
+                />
                 <div className="popup__userDetails">
                   <h4 className="popup__username">{user.displayName}</h4>
-                  <p className="popup__userHandle">{user.email}</p>
+                  <p className="popup__userHandle">@{user.username}</p>
                 </div>
                 <AiOutlineCheck className="popup__check" />
               </div>
@@ -56,7 +60,7 @@ const Sidebar = () => {
                   Sign into another account
                 </button>
                 <button className="popup__logout" onClick={logoutOfApp}>
-                  Log out {user.email}{' '}
+                  Log out @{user.username}{' '}
                 </button>
               </div>
             </div>
@@ -66,7 +70,7 @@ const Sidebar = () => {
             onClick={() => setShowPopup(!showPopup)}
           >
             <h4 className="sidebar__username">{user.displayName}</h4>
-            <p className="sidebar__userHandle">{user.email}</p>
+            <p className="sidebar__userHandle">@{user.username}</p>
           </div>
           <div
             className="sidebar__dotsWrap"

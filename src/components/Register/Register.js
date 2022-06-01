@@ -10,6 +10,8 @@ const Register = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [profilePic, setProfilePic] = useState('');
+  const [username, setUsername] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -22,6 +24,8 @@ const Register = () => {
         userAuth.user
           .updateProfile({
             displayName: name,
+            photoURL: profilePic,
+            username: username,
           })
           .then(() => {
             dispatch(
@@ -29,11 +33,14 @@ const Register = () => {
                 email: userAuth.user.email,
                 uid: userAuth.user.uid,
                 displayName: userAuth.user.displayName,
+                photoUrl: profilePic,
+                username: username,
               })
             );
             setName('');
             setEmail('');
             setPassword('');
+
             navigate('/');
           });
       })
@@ -55,6 +62,22 @@ const Register = () => {
               placeholder="Full Name"
               defaultValue={name}
               onChange={(e) => setName(e.target.value)}
+              className="register__inputField register__email"
+            />
+            <input
+              required
+              type="text"
+              placeholder="Username"
+              defaultValue={username}
+              onChange={(e) => setUsername(e.target.value)}
+              className="register__inputField register__email"
+            />
+            <input
+              required
+              type="text"
+              placeholder="Profile Picture URL (optional)"
+              defaultValue={profilePic}
+              onChange={(e) => setProfilePic(e.target.value)}
               className="register__inputField register__email"
             />
             <input

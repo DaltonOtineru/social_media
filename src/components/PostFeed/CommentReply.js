@@ -32,7 +32,7 @@ const CommentReply = () => {
       uid: user.uid,
       name: user.displayName,
       email: user.email,
-      // photoUrl: user.photoUrl || '',
+      photoUrl: user.photoUrl || '',
       comment: reply,
       timestamp: serverTimestamp(),
     });
@@ -46,7 +46,11 @@ const CommentReply = () => {
   return (
     <div className="post__commentWrap">
       <div className="post__commentTop">
-        <img src={avatar} alt="user avatar" className="post__commentImg" />
+        <img
+          src={user.photoUrl}
+          alt="user avatar"
+          className="post__commentImg"
+        />
       </div>
       <div className="post__commentBottom">
         <textarea

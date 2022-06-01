@@ -22,7 +22,10 @@ import { useRecoilState } from 'recoil';
 import { modalState, postIdState } from '../../atoms/modalAtom';
 import { useNavigate } from 'react-router-dom';
 
-const Post = ({ id, data: { name, text, email, image, timestamp, uid } }) => {
+const Post = ({
+  id,
+  data: { name, text, email, image, timestamp, uid, photoUrl, username },
+}) => {
   const user = useSelector(selectUser);
   const [isOpen, setIsOpen] = useRecoilState(modalState);
   const [postId, setPostId] = useRecoilState(postIdState);
@@ -68,12 +71,12 @@ const Post = ({ id, data: { name, text, email, image, timestamp, uid } }) => {
   return (
     <div className="post" key={id} id={id} onClick={() => viewPost()}>
       <div className="post__avatar">
-        <img src={avatar} className="avatar__img" />
+        <img src={photoUrl} className="avatar__img" />
       </div>
       <div className="post__details">
         <div className="post__user">
           <p className="post__name">{name}</p>
-          <p className="post__handle">{email}</p>
+          <p className="post__handle">@{username}</p>
           <span className="post__dot">•</span>
           <Moment fromNow className="post__timestamp">
             {timestamp?.toDate()}

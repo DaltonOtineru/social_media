@@ -1,4 +1,149 @@
+@import '../../sass/variables.scss';
+
 .widgets {
   color: white;
-  flex: 0.3;
+  flex: 0.4;
+  display: none;
+  max-width: 400px;
+}
+.widgets__inner {
+  padding: 1rem;
+  // margin-left: 1rem;
+}
+.widgets__searchHeader {
+  width: 100%;
+  background: $black;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 0.75rem 0;
+}
+.widgets__searchWrap {
+  display: flex;
+  background: rgb(32, 35, 39);
+  border-radius: $br;
+  padding: 0.5rem;
+
+  align-items: center;
+}
+.widgets__searchIcon {
+  height: 1.5rem;
+  width: 1.5rem;
+  color: $disabledGrey;
+  margin-right: 0.5rem;
+}
+.widgets__searchInput {
+  background: transparent;
+  outline: none;
+  border: none;
+  width: 100%;
+  &::placeholder {
+    color: $disabledGrey;
+  }
+}
+.widgets__relevant {
+  padding: 1rem;
+  background: $black;
+  border: 1px solid $grey;
+  border-radius: 1rem;
+  margin-top: 2rem;
+}
+.widgets__relevantHeader h5 {
+  font-weight: 800;
+}
+.relevant__infoTop {
+  display: flex;
+  align-items: center;
+}
+.relevant__avatar {
+  height: 3rem;
+  width: 3rem;
+  border-radius: $br;
+  object-fit: cover;
+  margin-right: 2rem;
+}
+.relevant__titles {
+  // margin-bottom: 1rem;
+}
+.relevant__name {
+  font-weight: 700;
+}
+.relevant__handle {
+  font-size: 0.95rem;
+  color: $disabledGrey;
+}
+.relevant__follow {
+  margin-left: auto;
+}
+.relevant__btn {
+  outline: none;
+  border: none;
+  border-radius: $br;
+  background: $white;
+  color: $black;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+.widgets__relevantBottom {
+  display: flex;
+  padding: 1rem 0;
+}
+.relevant__info {
+  // flex: 1;
+}
+.relevant__infoBottom {
+  margin-top: 1rem;
+}
+
+// Who to follow //
+
+.widgets__whoToFollow {
+  background: $hover;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+.header__text {
+  font-weight: 800;
+}
+.widgets__whoToFollowItem {
+  display: flex;
+  padding: 1rem 0;
+  align-items: center;
+}
+.follow__img {
+  border-radius: $br;
+  height: 3rem;
+  width: 3rem;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+.widgets__followItemRight {
+  display: flex;
+  flex: 1;
+}
+.widgets__followAccountName {
+  font-size: 15px;
+}
+.widgets__followAccountHndle {
+  color: $disabledGrey;
+  font-size: 15px;
+}
+.widgets__followAccountBtnWrap {
+  margin-left: auto;
+}
+.widgets__followAcountBtn {
+  outline: none;
+  border: none;
+  border-radius: $br;
+  background: $white;
+  color: $black;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+@media (min-width: $lg) {
+  .widgets {
+    display: flex;
+    flex: 0.4;
+  }
 }

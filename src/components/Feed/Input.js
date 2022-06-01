@@ -53,6 +53,7 @@ const Input = () => {
       // tag: user.tag,
       name: user.displayName,
       email: user.email,
+      username: user.username,
       photoUrl: user.photoUrl || '',
       text: input,
       timestamp: serverTimestamp(),
@@ -81,7 +82,7 @@ const Input = () => {
 
   return (
     <div className={loading ? 'input__loading' : 'input'}>
-      <img src={avatar} alt="" className="input__img" />
+      {user && <img src={user.photoUrl} alt="" className="input__img" />}
       <div className="input__textOuter">
         <div
           className={`${
