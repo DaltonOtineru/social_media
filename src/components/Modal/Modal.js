@@ -72,8 +72,14 @@ const Modal = () => {
 
   return (
     <div className={isOpen ? 'modal' : 'modal__hidden'}>
-      <XIcon className="modal__xIcon" onClick={() => setIsOpen(false)} />
-      <div className="modal__inner">
+      <XIcon
+        className="modal__xIcon"
+        onClick={(e) => {
+          e.stopPropagation();
+          setIsOpen(false);
+        }}
+      />
+      <div className="modal__inner2">
         <div className="modal__postInfo">
           <div className="modal__posterInfo">
             <img
@@ -123,7 +129,10 @@ const Modal = () => {
           </div>
           <div
             className="modal__emoji"
-            onClick={() => setShowEmojis(!showEmojis)}
+            onClick={(e) => {
+              e.stopPropagation();
+              setShowEmojis(!showEmojis);
+            }}
           >
             <EmojiHappyIcon className="modal__emojiBtn" />
           </div>

@@ -3,12 +3,13 @@
 .post {
   display: flex;
   align-items: flex-start;
-  max-width: 600px;
+  max-width: 100vw;
   width: 100%;
   padding: 1rem;
   border-bottom: 1px solid $grey;
   cursor: pointer;
   background: $black;
+  position: relative;
   &:hover {
     background: rgba(44, 38, 39, 0.1);
     transition: 400ms ease-in-out;
@@ -34,10 +35,11 @@
 }
 .post__user {
   display: flex;
-  padding-bottom: 0.25rem;
+  padding-bottom: 0.5rem;
   //   align-items: baseline;
   align-items: center;
   width: 100%;
+  max-width: 443px;
 }
 .post__name {
   text-transform: capitalize;
@@ -82,6 +84,7 @@
 .post__text {
   font-size: 0.94rem;
   color: $white;
+  max-width: 90vw;
 }
 .post__imgWrap {
   max-width: 100%;
@@ -183,6 +186,11 @@
   }
   .post__icon {
     margin-right: 1.5rem;
+  }
+}
+@media (min-width: $md) {
+  .post {
+    max-width: 600px;
   }
 }
 

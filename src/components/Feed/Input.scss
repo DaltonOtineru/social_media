@@ -81,7 +81,7 @@
   justify-content: center;
   cursor: pointer;
   top: 0.25rem;
-  left: 0.25rem;
+  left: 1.25rem;
   &:hover {
     background: rgba(44, 38, 39, 0.75);
   }
@@ -91,10 +91,13 @@
   height: 1.25rem;
 }
 .selected__file {
-  max-height: 380px;
-  max-width: 80%;
+  // max-height: 380px;
+  // max-width: 80%;
+  max-width: 443px;
+  max-height: 700px;
   object-fit: contain;
   border-radius: 1rem;
+  margin-left: 1rem;
 }
 .emoji__container {
   display: flex;

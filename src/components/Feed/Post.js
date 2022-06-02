@@ -21,6 +21,7 @@ import '../Modal/Modal.scss';
 import { useRecoilState } from 'recoil';
 import { modalState, postIdState } from '../../atoms/modalAtom';
 import { useNavigate } from 'react-router-dom';
+import Modal from '../Modal/Modal';
 
 const Post = ({
   id,
@@ -143,6 +144,7 @@ const Post = ({
           )}
         </div>
       </div>
+      {isOpen && postId === id ? <Modal /> : ''}
     </div>
   );
 };

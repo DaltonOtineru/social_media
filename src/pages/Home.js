@@ -16,7 +16,7 @@ const Home = () => {
       <Sidebar />
       <Feed />
       <Widgets />
-      {isOpen && <Modal />}
+      {/* {isOpen && <Modal />} */}
     </main>
   );
 };

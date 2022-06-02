@@ -40,9 +40,9 @@ const Comment = ({ comment, id }) => {
             <Moment fromNow className="comment__timestamp">
               {comment?.timestamp?.toDate()}
             </Moment>
-            {comment?.uid === user?.uid && (
+            {/* {comment?.uid === user?.uid && (
               <BsTrash className="comment__trash" onClick={deleteComment} />
-            )}
+            )} */}
           </div>
           <div className="comment__textWrap">
             <p className="comment__text">{comment?.comment}</p>

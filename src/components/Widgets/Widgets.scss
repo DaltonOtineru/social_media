@@ -151,10 +151,14 @@
   outline: none;
   border: none;
   border-radius: $br;
-  background: $white;
-  color: $black;
+  background: $blue;
+  color: $white;
   padding: 0.5rem 1rem;
   cursor: pointer;
+  &:hover {
+    background: $btnHoverBlue;
+    transition: 300ms ease-in-out;
+  }
 }
 @media (min-width: $lg) {
   .widgets {

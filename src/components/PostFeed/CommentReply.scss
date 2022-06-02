@@ -98,3 +98,11 @@
   max-width: 320px;
   border-radius: 1.25rem;
 }
+@media (max-width: $sm) {
+  .post__commentInput {
+    font-size: 1rem;
+  }
+  .post__commentImg {
+    margin-left: 0;
+  }
+}

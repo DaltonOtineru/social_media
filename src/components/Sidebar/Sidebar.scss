@@ -11,6 +11,7 @@
   height: 100vh;
   flex: 0.1;
   border-right: 1px solid $grey;
+  z-index: 101;
   // margin-left: 1rem;
   // width: 100px;
 }
@@ -104,6 +105,7 @@
   box-shadow: $popupBS;
   background: $black;
   border-radius: 1rem;
+  z-index: 10000;
 }
 
 .sidebar__popupInner {
