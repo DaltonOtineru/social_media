@@ -1,7 +1,5 @@
 import React, { useRef, useState } from 'react';
-// import { Picker } from 'emoji-mart';
-// import 'emoji-mart/css/emoji-mart.css';
-import avatar from '../../assets/avatar.jpeg';
+
 import {
   CalendarIcon,
   ChartBarIcon,

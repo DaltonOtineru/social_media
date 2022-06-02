@@ -1,8 +1,9 @@
 @import '../../sass/variables.scss';
 .feed {
-  min-width: fit-content;
+  // min-width: fit-content;
   overflow-y: scroll;
-  flex: 0.8;
+  // flex: 0.8;
+
   border-right: 1px solid $grey;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -33,7 +34,7 @@
   justify-content: space-between;
   width: 95%;
   margin-inline: auto;
-  padding: 1rem 0;
+  padding: 1rem;
   font-size: 1.25rem;
 }
 .feed__homeHeader {
@@ -59,7 +60,7 @@
 }
 @media (min-width: $lg) {
   .feed {
-    flex: 0.5;
+    flex: 1;
   }
 }
 @media (max-width: 500px) {

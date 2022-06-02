@@ -1,15 +1,14 @@
 @import '../../sass/variables.scss';
 .post__feed {
-  min-width: fit-content;
   overflow-y: scroll;
-  flex: 0.8;
+  flex: 1;
   border-right: 1px solid $grey;
   -ms-overflow-style: none;
   scrollbar-width: none;
   //   min-height: 150vh;
   display: flex;
   flex-direction: column;
-  max-width: 600px;
+  max-width: 100%;
 }
 .post__feed::-webkit-scrollbar {
   display: none;
@@ -55,9 +54,15 @@
   }
 }
 
+// @media (min-width: $lg) {
+//   .post__feed {
+//     flex: 0.5;
+//   }
+// }
 @media (min-width: $lg) {
-  .feed {
-    flex: 0.5;
+  .post__feed {
+    flex: 0.6;
+    max-width: 600px;
   }
 }
 @media (min-width: $xl) {
