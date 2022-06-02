@@ -66,7 +66,7 @@ const Post = ({
 
   const viewPost = () => {
     setPostId(id);
-    navigate(`/${postId}`);
+    navigate(`/:${postId}`);
   };
 
   return (
