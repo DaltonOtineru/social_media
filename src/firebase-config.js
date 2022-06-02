@@ -4,7 +4,7 @@ import 'firebase/compat/firestore';
 import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_API_KEY,
+  apiKey: 'AIzaSyD3gminimCTO56K_8taslmPC1GOkMkhetk',
   authDomain: 'social-media-fd7fd.firebaseapp.com',
   projectId: 'social-media-fd7fd',
   storageBucket: 'social-media-fd7fd.appspot.com',
