@@ -71,7 +71,10 @@ const Modal = () => {
   };
 
   return (
-    <div className={isOpen ? 'modal' : 'modal__hidden'}>
+    <div
+      className={isOpen ? 'modal' : 'modal__hidden'}
+      onClick={(e) => e.stopPropagation()}
+    >
       <XIcon
         className="modal__xIcon"
         onClick={(e) => {
@@ -116,6 +119,7 @@ const Modal = () => {
           rows="4"
           placeholder="Tweet your reply"
           value={comment}
+          // onClick={(e) => e.stopPropagation()}
           onChange={(e) => setComment(e.target.value)}
         />
       </div>
